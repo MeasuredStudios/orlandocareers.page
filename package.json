@@ -24,18 +24,6 @@
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "test": "jest"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run type-check"
-    }
-  },
-  "lint-staged": {
-    "./src/**/*.{ts,js,jsx,tsx}": [
-      "npm lint --fix",
-      "npm format"
-    ]
-  },
   "dependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
