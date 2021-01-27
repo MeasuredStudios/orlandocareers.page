@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import { Global } from '@emotion/react';
 import { GlobalStyles } from 'twin.macro';
 import ThemeToggle from './themeToggle';
@@ -116,6 +117,16 @@ const Footer: React.FC = () => {
 };
 
 const Layout: React.FC = ({ children, ...rest }) => {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
+
   return (
     <div {...rest}>
       <GlobalStyles />

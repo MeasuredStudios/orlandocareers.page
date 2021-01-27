@@ -17,7 +17,7 @@ const getInitialTheme = () => {
   return 'dark';
 };
 
-const ThemeContext = React.createContext();
+const ThemeContext = React.createContext('light');
 
 const ThemeProvider = ({ initialTheme, children }) => {
   const [theme, setTheme] = React.useState(getInitialTheme);

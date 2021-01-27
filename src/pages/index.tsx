@@ -3,12 +3,14 @@ import { PageProps } from 'gatsby';
 import 'twin.macro';
 
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 import { SiLinkedin, SiIndeed, SiMonster } from 'react-icons/si';
 import { BsFileEarmarkZip } from 'react-icons/bs';
 
 const Home: React.FC<PageProps> = () => {
   return (
     <Layout>
+      <SEO title="Orlando Career Dashboard" />
       <div tw="container mx-auto px-4">
         <h1 tw="font-bold text-3xl md:text-5xl tracking-tight mb-2">
           Welcome.
