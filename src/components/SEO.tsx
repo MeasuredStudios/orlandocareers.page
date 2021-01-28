@@ -64,6 +64,11 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
           property: `og:description`,
           content: metaDescription,
         },
+        // {
+        //   property: `og:image`,
+        //   content:
+        //     '',
+        // },
         {
           property: `og:type`,
           content: `website`,

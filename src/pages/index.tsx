@@ -4,6 +4,7 @@ import 'twin.macro';
 
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
+import SortTable from '../components/SortTable';
 import { SiLinkedin, SiIndeed, SiMonster } from 'react-icons/si';
 import { BsFileEarmarkZip } from 'react-icons/bs';
 
@@ -22,18 +23,24 @@ const Home: React.FC<PageProps> = () => {
         <h3 tw="font-bold text-2xl md:text-4xl tracking-tight mb-2">
           Thank You...
         </h3>
-        <h4 tw="text-lg md:text-xl font-medium mb-16 w-full">
-          Currently this dashboard is being developed. You could follow the
-          source Repo to start using the web gather,{' '}
+        <p tw="text-lg font-medium mb-2 w-full">
+          for your interest. Currently this dashboard is being developed. You
+          could follow the data source Repo to start using the web gather
+          through jupyter lab,{' '}
           <a
-            tw="text-lg md:text-xl font-bold hover:text-gray-600 transition"
+            tw="text-lg font-bold hover:text-gray-600 transition"
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/JovaniPink/orlando-careers"
+            href="https://github.com/JovaniPink/orlando-job-market-data"
           >
             Orlando Job Market Data
           </a>{' '}
+          . However, here the latest gathered data.
+        </p>
+        <h4 tw="text-lg md:text-xl font-bold my-2 w-full">
+          Current career listing for Greater Orlando:
         </h4>
+        <SortTable />
         <h3 tw="font-bold text-2xl md:text-4xl tracking-tight mb-2">
           Keep Applying
         </h3>
