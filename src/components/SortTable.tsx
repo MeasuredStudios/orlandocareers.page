@@ -9,11 +9,9 @@ export function classNames(...classes) {
 
 const ColumnHeader = ({ label, onSort = () => null }) => {
   function handleSortUp() {
-    console.log('Clicked up for ' + label);
     onSort(label, 'A');
   }
   function handleSortDown() {
-    console.log('Clicked down for ' + label);
     onSort(label, 'D');
   }
   return (
@@ -42,9 +40,7 @@ const TableHeader = ({ label }) => (
 );
 
 const TableCell = ({ value }) => (
-  <td tw="px-6 py-4 truncate text-sm leading-5 text-gray-900">
-    {value}
-  </td>
+  <td tw="px-6 py-4 truncate text-sm leading-5 text-gray-900">{value}</td>
 );
 
 const TableRow = ({ children, odd }) => {
@@ -56,7 +52,7 @@ const TableRow = ({ children, odd }) => {
 const SortTable = () => {
   const data = useStaticQuery(graphql`
     {
-      allIndeedJobSearchTechnologyJson(limit: 20) {
+      allIndeedJobSearchTechnologyJson {
         edges {
           node {
             Index
@@ -76,7 +72,7 @@ const SortTable = () => {
     }
   );
 
-  console.log(dataCleaned);
+  const partialDataCleaned = dataCleaned.slice(0, 20);
 
   const cols = [
     'Index',
@@ -89,7 +85,13 @@ const SortTable = () => {
     'ApplyURL',
   ];
 
-  const [sortedData, setSortedData] = React.useState(dataCleaned);
+  const [sortedData, setSortedData] = React.useState(partialDataCleaned);
+  const [sortedDataAll, setSortedDataAll] = React.useState(dataCleaned);
+  console.log(sortedData);
+
+  const returnAll = (dataCleanedArg) => {
+    return setSortedData(dataCleanedArg);
+  };
 
   const handleColumnSort = (col) => (name, direction) => {
     const u = direction === 'A' ? 'asc' : 'desc';
@@ -125,6 +127,25 @@ const SortTable = () => {
               ))}
             </tbody>
           </table>
+        </div>
+        <div>
+          <button
+            tw="font-bold py-2 px-4 w-full inline-flex items-center"
+            onClick={() => {
+              returnAll(sortedDataAll);
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
+              <path d="M0 0h24v24H0z" fill="none" />
+            </svg>
+            <span tw="ml-2">Show All (500 +)</span>
+          </button>
         </div>
       </div>
     </div>
