@@ -7,6 +7,7 @@ module.exports = {
     keywords:
       'dashboard, reactjs, gatsbyjs, tailwindcss, twin-macro, orlando-job-market-data​',
     siteUrl: 'https://www.orlandocareers.page',
+    image: `/profile-github.png`,
     social: {
       twitter: `@JovaniPink`,
     },

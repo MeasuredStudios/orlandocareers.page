@@ -17,17 +17,20 @@ interface Props {
   lang?: string;
   meta?: Meta[];
   title: string;
+  image?: string;
 }
 
-const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
+const SEO: React.FC<Props> = ({ description, lang, meta, title, image }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             title
-            siteUrl
             description
+            siteUrl
+            image
+            keywords
             author
             social {
               twitter
@@ -53,29 +56,49 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
           content: metaDescription,
         },
         {
-          property: `og:title`,
-          content: title,
+          name: `keywords`,
+          content:
+            'dashboard, reactjs, gatsbyjs, tailwindcss, twin-macro, orlando-job-market-data​​',
         },
         {
-          property: `og:url`,
-          content: 'https://www.jovanipink.com',
+          'http-equiv': `content-language`,
+          content: `en-us`,
+        },
+        {
+          property: `og:title`,
+          content: title,
         },
         {
           property: `og:description`,
           content: metaDescription,
         },
-        // {
-        //   property: `og:image`,
-        //   content:
-        //     '',
-        // },
+        {
+          property: `og:url`,
+          content: `site.siteMetadata.siteUrl`,
+        },
+        {
+          property: `og:site_name`,
+          content: `Orlando Careers`,
+        },
         {
           property: `og:type`,
           content: `website`,
         },
         {
+          property: `og:image:alt`,
+          content: `An image of an open shops with careers as a sign.`,
+        },
+        {
+          property: `og:locale`,
+          content: `en_US`,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
+        },
+        {
+          name: `twitter:site`,
+          content: site.siteMetadata.social.twitter,
         },
         {
           name: `twitter:creator`,
@@ -88,6 +111,22 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          property: 'og:image',
+          content: `${site.siteMetadata.siteUrl}${site.siteMetadata.image}`,
+        },
+        {
+          name: 'twitter:image',
+          content: `${site.siteMetadata.siteUrl}${site.siteMetadata.image}`,
+        },
+        {
+          property: `twitter:image:alt`,
+          content: `An image of an open notebook with a drawn graph.`,
+        },
+        {
+          property: `twitter:url`,
+          content: `site.siteMetadata.siteUrl`,
         },
       ].concat(meta!)}
     />
