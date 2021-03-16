@@ -75,7 +75,7 @@
     "@babel/plugin-proposal-decorators": "7.13.5",
     "@emotion/babel-plugin-jsx-pragmatic": "0.1.5",
     "eslint": "7.22.0",
-    "eslint-config-prettier": "6.15.0",
+    "eslint-config-prettier": "8.1.0",
     "eslint-plugin-react": "7.22.0",
     "husky": "4.3.8",
     "identity-obj-proxy": "3.0.0",
