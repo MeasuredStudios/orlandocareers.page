@@ -28,7 +28,7 @@
     "@emotion/react": "11.1.5",
     "@emotion/styled": "11.1.5",
     "axios": "0.21.1",
-    "d3": "6.6.0",
+    "d3": "6.6.1",
     "lodash": "4.17.21",
     "gatsby": "3.1.1",
     "gatsby-image": "3.1.0",
